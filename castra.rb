@@ -6,21 +6,21 @@ class Castra < Formula
   desc "Castra is a structured project management CLI for autonomous AI agents. It enforces role boundaries, audit trails, and sprint-driven workflows.
 "
   homepage "https://github.com/amangsingh/castra"
-  version "2.1.0"
+  version "3.0.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/amangsingh/castra/releases/download/v2.1.0/castra_2.1.0_darwin_amd64.tar.gz"
-      sha256 "090cd7f5d42bac9e7d18e2e70fd2e186d88f93b994170eab104bdd1056f67aac"
+      url "https://github.com/amangsingh/castra/releases/download/v3.0.0/castra_3.0.0_darwin_amd64.tar.gz"
+      sha256 "603e8f1c1c57b99d281e0c6d1a53d726c31abc540ca87682ef258de4b81c29e7"
 
       define_method(:install) do
         bin.install "castra"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/amangsingh/castra/releases/download/v2.1.0/castra_2.1.0_darwin_arm64.tar.gz"
-      sha256 "a991808a11aa985be5c09dd5319f68f482afdb76f56df212312200ff8d56cdd5"
+      url "https://github.com/amangsingh/castra/releases/download/v3.0.0/castra_3.0.0_darwin_arm64.tar.gz"
+      sha256 "4de5f4171cd8f92e953d1367c8572e244f25a132c14a322a9058f156031413d4"
 
       define_method(:install) do
         bin.install "castra"
@@ -30,19 +30,24 @@ class Castra < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/amangsingh/castra/releases/download/v2.1.0/castra_2.1.0_linux_amd64.tar.gz"
-      sha256 "6f60d5530c532f69d86d9b08659faa5550091dcc86f7758e59325f057868a4de"
+      url "https://github.com/amangsingh/castra/releases/download/v3.0.0/castra_3.0.0_linux_amd64.tar.gz"
+      sha256 "902b2cd8f3a455e1e3e65dd97b3f5817f0c0b899c88228b59b46e4cf781f20c1"
       define_method(:install) do
         bin.install "castra"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/amangsingh/castra/releases/download/v2.1.0/castra_2.1.0_linux_arm64.tar.gz"
-      sha256 "dc0745748e7bfc98193fbd92fb8d135c6610f340aa80eee8d96f2b44732da59c"
+      url "https://github.com/amangsingh/castra/releases/download/v3.0.0/castra_3.0.0_linux_arm64.tar.gz"
+      sha256 "a5bc6494cde556e76f4de9675fe23cfa219512a14bbbdb11259450673780af94"
       define_method(:install) do
         bin.install "castra"
       end
     end
+  end
+
+  def post_install
+    ohai "Upgrading from v2.x? Run: castra db encrypt --sovereign"
+    ohai "This migrates your workspace.db from integer PKs to UUIDv7 schema."
   end
 
   test do
