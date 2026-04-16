@@ -6,21 +6,21 @@ class Castra < Formula
   desc "Castra is a structured project management CLI for autonomous AI agents. It enforces role boundaries, audit trails, and sprint-driven workflows.
 "
   homepage "https://github.com/amangsingh/castra"
-  version "4.6.0"
+  version "4.6.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/amangsingh/castra/releases/download/v4.6.0/castra_4.6.0_darwin_amd64.tar.gz"
-      sha256 "b60bbf7b6e58ed92ef86c076155ff019a171f512f09fb9c8a8dbb51f29dffa4b"
+      url "https://github.com/amangsingh/castra/releases/download/v4.6.1/castra_4.6.1_darwin_amd64.tar.gz"
+      sha256 "0e10f4056d6727402f70b33af5db8615f1a2ecc1dd586cc16911288fdbf88f9c"
 
       define_method(:install) do
         bin.install "castra"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/amangsingh/castra/releases/download/v4.6.0/castra_4.6.0_darwin_arm64.tar.gz"
-      sha256 "f8d3509ec0721f303c04d4948698db0ca01e4042ecd5b26155185a2e62d6daf6"
+      url "https://github.com/amangsingh/castra/releases/download/v4.6.1/castra_4.6.1_darwin_arm64.tar.gz"
+      sha256 "98a966e7b836447d4e05de0234c9fc454113b9e19f8706fb357159b156192b3d"
 
       define_method(:install) do
         bin.install "castra"
@@ -30,15 +30,15 @@ class Castra < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/amangsingh/castra/releases/download/v4.6.0/castra_4.6.0_linux_amd64.tar.gz"
-      sha256 "e319a9d5959248db24ab390176a6b8d92551779088dbd676dc4370169c1c0036"
+      url "https://github.com/amangsingh/castra/releases/download/v4.6.1/castra_4.6.1_linux_amd64.tar.gz"
+      sha256 "afbe3fb8017b739bdee72ddd69540fe7a47eea96c521416f6cbc6a339f2fc40e"
       define_method(:install) do
         bin.install "castra"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/amangsingh/castra/releases/download/v4.6.0/castra_4.6.0_linux_arm64.tar.gz"
-      sha256 "b91696fe766de7b6df6fd4d50e07c29ad5fa926a64f4457a0e331be5d772e34d"
+      url "https://github.com/amangsingh/castra/releases/download/v4.6.1/castra_4.6.1_linux_arm64.tar.gz"
+      sha256 "5f44333d8264f4e10947471a3d48907d66d11f223d3a319fc435b659a0735f9c"
       define_method(:install) do
         bin.install "castra"
       end
